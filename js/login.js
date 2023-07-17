@@ -16,8 +16,8 @@ $('#alarm-fullscreen-toggler').on('click', function (e) {
         }
     }
     console.log(window)
-    console.log(window.parent.document.getElementByIdx_x("page"))
-    // parent.document.getElementByIdx_x("page").onchange =
+    console.log(window.parent.document.getElementById("page"))
+    // parent.document.getElementById("page").onchange =
     //     function () { page.scr="./main.html" }
 });
 
