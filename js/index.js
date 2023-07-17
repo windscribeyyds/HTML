@@ -1,4 +1,5 @@
-// 柱状图 炉顶温度压力
+// 位置注释 @xy x列y行
+// 柱状图 炉顶温度压力 @11
 (function () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector(".bar .chart"));
@@ -13,10 +14,10 @@
       },
     },
     grid: {
-      left: "0%",
+      left: "3%",
       top: "20%",
-      right: "0%",
-      bottom: "12%",
+      right: "3%",
+      bottom: "13%",
       containLabel: true,
     },
     xAxis: [
@@ -27,8 +28,9 @@
           alignWithLabel: true,
         },
         axisLabel: {
-          color: "rgba(255,255,255,.6)",
-          fontSize: 14,
+          color: "rgba(255,255,255,.8)",
+          fontSize: "0.16rem",
+          interval: 0, // 强制显示完整
         },
         axisLine: {
           show: false,
@@ -40,7 +42,7 @@
         type: "value",
         axisLabel: {
           color: "rgba(255,255,255,.6)",
-          fontSize: 12,
+          fontSize: "0.14rem",
         },
         axisLine: {
           lineStyle: {
@@ -61,13 +63,14 @@
         barWidth: "35%",
         data: [327, 277, 332, 281],
         itemStyle: {
-          borderRadius: 5,
+          borderRadius: 3 / dpr,
         },
         label: {
           show: true,
           position: "top",
           color: "inherit",
           fontWeight: 600,
+          fontSize: 13 / dpr,
         },
       },
     ],
@@ -100,7 +103,7 @@
   });
 })();
 
-// 折线图 风压
+// 折线图 风压 @12
 (function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".line .chart"));
@@ -120,28 +123,33 @@
       confine: true,
     },
     legend: {
-      // 距离容器
-      right: "12%",
+      // 距离容器 
       top: "0%",
+      itemWidth: 24 / dpr,
+      itemHeight: 12 / dpr,
+      lineStyle: {
+        width: 2 / dpr,
+      },
       textStyle: {
         // 修饰图例文字的颜色
         color: "rgba(255,255,255,.8)",
         // 图例文本对齐
         rich: {
           verticalAlign: "middle",
-          padding: [0, 0, -3.2, 0], //[上、右、下、左]
+          padding: [0, 0, -3 / dpr, 0], //[上、右、下、左]
         },
+        fontSize: "0.14rem",
       }
       // 如果series 里面设置了name，此时图例组件的data可以省略
       // data: ["邮件营销", "联盟广告"]
     },
     grid: {
-      left: "10",
-      top: "30",
-      right: "10",
-      bottom: "26",
+      left: "3%",
+      top: "16%",
+      right: "5%",
+      bottom: "13% ",
       show: true,
-      borderColor: "rgba(255,255,255,.2)",
+      borderColor: "rgba(255,255,255,.1)",
       containLabel: true,
     },
     xAxis: {
@@ -168,18 +176,20 @@
       // 修饰刻度标签的颜色
       axisLabel: {
         color: "rgba(255,255,255,.7)",
+        fontSize: "0.14rem",
       },
       // 去除x坐标轴的颜色
       axisLine: {
         show: false,
       },
       // 修改x轴分割线的颜色
-      // splitLine: {
-      //   show: true,
-      //   lineStyle: {
-      //     color: "rgba(255,255,255,.2)",
-      //   },
-      // },
+      splitLine: {
+        show: true,
+        interval: 0, // 强制显示完整
+        lineStyle: {
+          color: "rgba(255,255,255,.1)",
+        },
+      },
     },
     yAxis: {
       type: "value",
@@ -194,6 +204,7 @@
       // 修饰刻度标签的颜色
       axisLabel: {
         color: "rgba(255,255,255,.7)",
+        fontSize: "0.16rem",
       },
       // 修改y轴分割线的颜色
       splitLine: {
@@ -230,7 +241,7 @@
   });
 })();
 
-// 饼形图 炉顶煤气分析
+// 饼形图 炉顶煤气分析 @13
 (function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".pie .chart"));
@@ -240,24 +251,24 @@
       confine: true,
     },
     legend: {
-      top: "78%",
-      itemWidth: 12,
-      itemHeight: 12,
+      bottom: "13%",
+      itemWidth: 12 / dpr,
+      itemHeight: 12 / dpr,
       textStyle: {
-        color: "rgba(255,255,255,.5)",
-        fontSize: 14,
+        color: "rgba(255,255,255,.8)",
+        fontSize: "0.16rem",
         // 图例文本对齐
         rich: {
           verticalAlign: "middle",
         },
-        padding: [0, 0, -5, 0], //[上、右、下、左]
+        padding: [0, 0, -3 / dpr, 0], //[上、右、下、左]
       },
     },
     series: [
       {
         name: "炉顶煤气分析",
         type: "pie",
-        center: ["50%", "39%"],
+        center: ["50%", "37%"],
         radius: ["36%", "60%"],
         color: ["#4169E1", "#00FFFF", "#00BFFF"],
         label: { show: false },
@@ -277,20 +288,22 @@
   });
 })();
 
-// 喷煤参数多边形模块
+// 喷煤参数多边形模块 @31
 (function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".bar1 .chart"));
   option = {
     tooltip: {
       trigger: "item",
-      position: { left: 13, top: -18 },
+      position: { left: "5.3%", top: "-10%" },
       hideDelay: 3000,
-      fontSize: 16,
+      textStyle: {
+        fontSize: 16 / dpr,
+      },
     },
     radar: {
       center: ["50%", "46%"],
-      radius: 63,
+      radius: "60%",
       indicator: [
         { name: "喷煤设定(t/h)", max: 50 },
         { name: "上小时\r\n喷煤量(t)", max: 50 },
@@ -299,8 +312,8 @@
         { name: "大气湿度\r\n(g/m³)", max: 100 },
         { name: "风口个数", max: 30 },
       ],
-      splitNumber: 4,
-      axisNameGap: 10,
+      splitNumber: 5,
+      axisNameGap: 7,
       axisLine: {
         //指向外圈文本的分隔线样式
         lineStyle: {
@@ -318,14 +331,14 @@
           color: ["transparent"],
         },
       },
-      axixName: {
+      axisName: {
         color: "rgba(255,255,255,.8)",
-        fontSize: 14,
+        fontSize: "0.16rem",
       },
     },
     series: [
       {
-        name: "======喷煤参数======",
+        name: "<=====喷煤参数=====>",
         type: "radar",
         symbol: "none",
         data: [
@@ -349,7 +362,7 @@
   });
 })();
 
-// 折线图 风量
+// 折线图 风量 @32
 (function () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".line1 .chart"));
@@ -364,21 +377,26 @@
     },
     legend: {
       top: "0%",
+      itemWidth: 24 / dpr,
+      itemHeight: 12 / dpr,
+      lineStyle: {
+        width: 2 / dpr,
+      },
       textStyle: {
         color: "rgba(255,255,255,.8)",
-        fontSize: 12,
+        fontSize: "0.14rem",
         // 图例文本对齐
         rich: {
           verticalAlign: "middle",
-          padding: [0, 0, -3, 0], //[上、右、下、左]
+          padding: [0, 0, -3 / dpr, 0], //[上、右、下、左]
         },
       }
     },
     grid: {
-      left: "10",
-      top: "30",
-      right: "10",
-      bottom: "26",
+      left: "3%",
+      top: "16%",
+      right: "3%",
+      bottom: "13%",
       containLabel: true,
     },
     xAxis: [
@@ -387,7 +405,7 @@
         boundaryGap: false,
         axisLabel: {
           color: "rgba(255,255,255,.7)",
-          fontSize: 14,
+          fontSize: "0.16rem",
         },
         axisLine: {
           lineStyle: {
@@ -429,8 +447,6 @@
       {
         axisPointer: { show: false },
         axisLine: { show: false },
-        position: "bottom",
-        offset: 20,
       },
     ],
     yAxis: [
@@ -443,13 +459,13 @@
           },
         },
         axisLabel: {
-          color: "rgba(255,255,255,.7)",
-          fontSize: 12,
+          color: "rgba(255,255,255,.5)",
+          fontSize: "0.14rem",
         },
 
         splitLine: {
           lineStyle: {
-            color: "rgba(255,255,255,.2)",
+            color: "rgba(255,255,255,.1)",
           },
         },
       },
@@ -459,8 +475,6 @@
         name: "冷风流量",
         type: "line",
         smooth: true,
-        symbol: "circle",
-        symbolSize: 5,
         showSymbol: false,
         lineStyle: {
           color: "#0184d5",
@@ -475,7 +489,7 @@
             [
               {
                 offset: 0,
-                color: "rgba(1, 132, 213, 0.4)",
+                color: "rgba(1, 132, 213, 0.5)",
               },
               {
                 offset: 0.8,
@@ -489,7 +503,7 @@
         itemStyle: {
           color: "#0184d5",
           borderColor: "rgba(221, 220, 107, .1)",
-          borderWidth: 12,
+          borderWidth: 12 / dpr,
         },
         data: [
           30, 40, 30, 40, 30, 40, 30, 60, 20, 40, 20, 40, 30, 40, 30, 40, 30,
@@ -500,11 +514,9 @@
         name: "热风流量",
         type: "line",
         smooth: true,
-        symbol: "circle",
-        symbolSize: 5,
         showSymbol: false,
         lineStyle: {
-          color: "#00d887",
+          color: "#0BDA51",
           width: 2,
         },
         areaStyle: {
@@ -516,11 +528,11 @@
             [
               {
                 offset: 0,
-                color: "rgba(0, 216, 135, 0.4)",
+                color: "rgba(11, 218, 81, 0.3)",
               },
               {
                 offset: 0.8,
-                color: "rgba(0, 216, 135, 0.1)",
+                color: "rgba(11, 218, 81, 0.1)",
               },
             ],
             false
@@ -528,9 +540,9 @@
           shadowColor: "rgba(0, 0, 0, 0.1)",
         },
         itemStyle: {
-          color: "#00d887",
+          color: "#0BDA51",
           borderColor: "rgba(221, 220, 107, .1)",
-          borderWidth: 12,
+          borderWidth: 12 / dpr,
         },
         data: [
           50, 30, 50, 60, 10, 50, 30, 50, 60, 40, 60, 40, 80, 30, 50, 60, 10,
@@ -546,7 +558,7 @@
   });
 })();
 
-// 压力指数模块
+// 压力指数模块 @33
 (function () {
   // 1. 实例化对象
   var myChart = echarts.init(document.querySelector(".pie1  .chart"));
@@ -562,8 +574,8 @@
         name: "压力指数",
         type: "pie",
         // 如果radius是百分比则必须加引号
-        radius: ["20%", "70%"],
-        center: ["50%", "43%"],
+        radius: ["20%", "66%"],
+        center: ["50%", "41%"],
         roseType: "radius",
         data: [
           { value: 1.58, name: "风口高压" },
@@ -574,17 +586,17 @@
         // 修饰饼形图文字相关的样式label对象
         label: {
           color: "inherit",
-          fontSize: 14,
-          width: 30,
+          fontSize: "0.16rem",
+          width: 36 / dpr,
           overflow: "breakAll",
           fontWeight: 600,
         },
         // 修饰引导线样式
         labelLine: {
           // 连接到图形的线长度
-          length: 10,
+          length: 10 / dpr,
           // 连接到文字的线长度
-          length2: 10,
+          length2: 10 / dpr,
         },
       },
     ],
@@ -598,7 +610,7 @@
   });
 })();
 
-// 统一设置出铁口柱状图，odata：数据
+// 统一设置出铁口柱状图，odata：数据 @4
 function taphole_opt(odata) {
   var max = [1700, 15, 1, 1]; //最大值
   var min = [1200, 5, 0, 0]; //最小值
@@ -615,7 +627,7 @@ function taphole_opt(odata) {
       value: (((odata[1] - min[1]) / (max[1] - min[1])) * 100).toFixed(1),
       name: odata[1],
       label: {
-        formatter: "{b}M/s",
+        formatter: "{b}m/s",
       },
     },
     // (odata[2] * 100).toFixed(0),
@@ -644,16 +656,6 @@ function taphole_opt(odata) {
       bottom: "30%",
       right: "6%",
     },
-    // title: {
-    //   text: "出铁时长： 00:12:34",
-    //   bottom: 28,
-    //   left: 36,
-    //   textAlign: "left",
-    //   textStyle: {
-    //     color: "#fff",
-    //     fontWeight: 20,
-    //   },
-    // },
     xAxis: {
       show: false,
       min: 0,
@@ -675,28 +677,13 @@ function taphole_opt(odata) {
         },
         axisLabel: {
           color: "#fff",
-          fontSize: 14,
-          rich: {
-            lg: {
-              backgroundColor: "#339911",
-              color: "#fff",
-              borderRadius: 15,
-              // padding: 5,
-              align: "center",
-              width: 15,
-              height: 15,
-            },
-          },
+          fontSize: "0.18rem",
         },
       },
       {
         show: false,
         inverse: true,
         data: valdata,
-        axisLabel: {
-          fontSize: 12,
-          color: "#fff",
-        },
       },
     ],
     series: [
@@ -705,11 +692,11 @@ function taphole_opt(odata) {
         type: "bar",
         yAxisIndex: 0,
         data: data,
-        barCategoryGap: 50,
-        barWidth: 12,
+        barCategoryGap: 50 / dpr,
+        barWidth: 12 / dpr,
         animation: false, //关闭动画
         itemStyle: {
-          borderRadius: 20,
+          borderRadius: 20 / dpr,
           color: function (params) {
             var num = myColor.length;
             return myColor[params.dataIndex % num];
@@ -717,7 +704,7 @@ function taphole_opt(odata) {
         },
         label: {
           show: true,
-          fontSize: 14,
+          fontSize: "0.18rem",
           color: "#fff",
           textShadowColor: "#000",
           textShadowBlur: 6,
@@ -730,14 +717,14 @@ function taphole_opt(odata) {
         name: "框",
         type: "bar",
         yAxisIndex: 1,
-        barCategoryGap: 50,
+        barCategoryGap: 50 / dpr,
         data: valdata,
-        barWidth: 16,
+        barWidth: 18 / dpr,
         itemStyle: {
           color: "none",
           borderColor: "#00c1de",
-          borderWidth: 3,
-          borderRadius: 15,
+          borderWidth: 3 / dpr,
+          borderRadius: 12 / dpr,
         },
       },
     ],
@@ -781,11 +768,27 @@ function taphole_opt(odata) {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".taphole2 .chart"));
   // odata:温度，流速，硅含量，渣铁比
-  var odata = [1542, 10.6, 0.77, 0.46];
+  var odata = [1600, 13.0, 0.67, 0.56];
   // taphole_opt设置出铁口柱状图
   var option = taphole_opt(odata);
   // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
+  myChart.setOption(option, true);
+  //定时更新
+  setInterval(function () {
+    // axios.get("http://localhost:5109/api/Login?datatable=mitap&project=miTem").then(function (res) {
+    //   console.log(res);
+    //   odata[0] = res.data; //获取数据 温度
+    // })
+    // axios.get("http://localhost:5109/api/Login?datatable=mitap&project=miVel").then(function (res) {
+    //   console.log(res);
+    //   odata[1] = res.data; //获取数据 流速
+    // })
+    odata[0] = (Math.random() * 100 + 1500).toFixed(0);
+    odata[1] = (Math.random() * 2 + 10).toFixed(1);
+    option = taphole_opt(odata);
+    //重新绘制 
+    myChart.setOption(option);
+  }, 1000);
   window.addEventListener("resize", function () {
     myChart.resize();
   });
@@ -796,11 +799,27 @@ function taphole_opt(odata) {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".taphole3 .chart"));
   // odata:温度，流速，硅含量，渣铁比
-  var odata = [1572, 8.6, 0.37, 0.36];
+  var odata = [1600, 13.0, 0.67, 0.56];
   // taphole_opt设置出铁口柱状图
   var option = taphole_opt(odata);
   // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
+  myChart.setOption(option, true);
+  //定时更新
+  setInterval(function () {
+    // axios.get("http://localhost:5109/api/Login?datatable=mitap&project=miTem").then(function (res) {
+    //   console.log(res);
+    //   odata[0] = res.data; //获取数据 温度
+    // })
+    // axios.get("http://localhost:5109/api/Login?datatable=mitap&project=miVel").then(function (res) {
+    //   console.log(res);
+    //   odata[1] = res.data; //获取数据 流速
+    // })
+    odata[0] = (Math.random() * 100 + 1500).toFixed(0);
+    odata[1] = (Math.random() * 2 + 10).toFixed(1);
+    option = taphole_opt(odata);
+    //重新绘制 
+    myChart.setOption(option);
+  }, 1000);
   window.addEventListener("resize", function () {
     myChart.resize();
   });
@@ -811,17 +830,33 @@ function taphole_opt(odata) {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector(".taphole4 .chart"));
   // odata:温度，流速，硅含量，渣铁比
-  var odata = [1612, 12.0, 0.26, 0.61];
+  var odata = [1600, 13.0, 0.67, 0.56];
   // taphole_opt设置出铁口柱状图
   var option = taphole_opt(odata);
   // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
+  myChart.setOption(option, true);
+  //定时更新
+  setInterval(function () {
+    // axios.get("http://localhost:5109/api/Login?datatable=mitap&project=miTem").then(function (res) {
+    //   console.log(res);
+    //   odata[0] = res.data; //获取数据 温度
+    // })
+    // axios.get("http://localhost:5109/api/Login?datatable=mitap&project=miVel").then(function (res) {
+    //   console.log(res);
+    //   odata[1] = res.data; //获取数据 流速
+    // })
+    odata[0] = (Math.random() * 100 + 1500).toFixed(0);
+    odata[1] = (Math.random() * 2 + 10).toFixed(1);
+    option = taphole_opt(odata);
+    //重新绘制 
+    myChart.setOption(option);
+  }, 1000);
   window.addEventListener("resize", function () {
     myChart.resize();
   });
 })();
 
-// 统一设置实时铁水信息折线图（温度，流速，时间）
+// 统一设置实时铁水信息折线图（温度，流速，时间） @5
 function tline_opt(Temperature, CurrentSpeed, timeData) {
   var option = {
     tooltip: {
@@ -831,16 +866,16 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
       },
       formatter: function (params) {
         /// alert(JSON.stringify(params)); 显示数据格式
-        var res = "<div><p>&ensp;时间: " + params[0].name + "</p></div>";
+        var res = '<div><p>&emsp;时间: &ensp;' + params[0].name + '</p></div>';
         for (var i = 0; i < params.length; i++) {
           if (params[i].data != undefined) {
             res +=
               "<p>" +
               params[i].marker +
               params[i].seriesName +
-              ": " +
+              ': <span style="font-weight:600;">' +
               params[i].data +
-              "</p>";
+              "</span></p>";
           }
         }
         return res;
@@ -852,7 +887,6 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
     toolbox: {
       show: true,
       z: -10,
-      top: -6,
       feature: {
         dataZoom: {
           yAxisIndex: "none",
@@ -870,66 +904,64 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
         name: "温度(℃)",
         nameLocation: "center",
         nameTextStyle: {
-          padding: [0, 0, 26, 0],
+          padding: [0, 0, 26 / dpr, 0],
           color: "rgba(255,255,255,.8)",
-          fontSize: 15,
+          fontSize: 16 / dpr,
         },
         type: "value",
-        scale: true,
+        scale: true,  //指定温度范围
         // min:1200,
         // max:1700,
         axisLine: {
           show: true,
           lineStyle: {
-            width: 2,
+            width: 2 / dpr,
             color: "rgba(255,255,255,.4)",
           },
         },
         axisTick: {
           show: true,
           lineStyle: {
-            width: 2,
+            width: 2 / dpr,
             color: "rgba(255,255,255,.4)",
           },
-        },
-        axisLabel: {
-          fontSize: 10,
         },
         splitLine: {
           lineStyle: {
             color: "rgba(255,255,255,.1)",
           },
         },
+        axisLabel: {
+          fontSize: "0.12rem",
+        },
       },
       {
         gridIndex: 1,
-        name: "流速(M/s)",
+        name: "流速(m/s)",
         nameLocation: "center",
         nameTextStyle: {
-          padding: [0, 0, 26, 0],
+          padding: [0, 0, 26 / dpr, 0],
           color: "rgba(255,255,255,.8)",
-          fontSize: 15,
+          fontSize: 16 / dpr,
         },
         type: "value",
         scale: true,
-        // min:5,
-        // max:20,
         axisLine: {
           show: true,
           lineStyle: {
-            width: 2,
+            width: 2 / dpr,
             color: "rgba(255,255,255,.4)",
           },
         },
         axisTick: {
           show: true,
           lineStyle: {
-            width: 2,
+            width: 2 / dpr,
             color: "rgba(255,255,255,.4)",
           },
         },
         axisLabel: {
-          fontSize: 10,
+          fontSize: "0.12rem",
         },
         splitLine: {
           lineStyle: {
@@ -966,17 +998,22 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
         boundaryGap: false,
         axisLine: { onZero: true },
         data: timeData,
+
         axisLine: {
           show: true,
           lineStyle: {
             color: "rgba(255,255,255,.4)",
-            width: 1.6,
+            width: 1.6 / dpr,
           },
+        },
+        axisLabel: {
+          fontSize: "0.15rem",
+          interval: 8, // 显示
         },
         axisTick: {
           show: true,
           lineStyle: {
-            width: 1,
+            width: 1 / dpr,
             color: "rgba(255,255,255,.4)",
           },
         },
@@ -990,14 +1027,14 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
     ],
     grid: [
       {
-        left: 70,
-        right: 20,
+        left: "11%",
+        right: "3%",
         top: "4%",
         height: "35%",
       },
       {
-        left: 70,
-        right: 20,
+        left: "11%",
+        right: "3%",
         top: "45%",
         height: "35%",
       },
@@ -1015,6 +1052,9 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
           color: "#0184d5",
         },
         smooth: 0.3, // 平滑
+        lineStyle: {
+          width: 2 / dpr,  //线宽
+        },
         areaStyle: {
           color: new echarts.graphic.LinearGradient(
             0,
@@ -1037,7 +1077,7 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
         },
       },
       {
-        name: "流速(M/s)",
+        name: "流速(m/s)",
         type: "line",
         xAxisIndex: 1,
         yAxisIndex: 1,
@@ -1048,6 +1088,9 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
           color: "#00d887",
         },
         smooth: 0.3, // 平滑
+        lineStyle: {
+          width: 2 / dpr,  //线宽
+        },
         areaStyle: {
           color: new echarts.graphic.LinearGradient(
             0,
@@ -1333,4 +1376,22 @@ function tline_opt(Temperature, CurrentSpeed, timeData) {
   window.addEventListener("resize", function () {
     myChart.resize();
   });
+})();
+
+//出铁时长 计时
+(function () {
+  var t = 0;
+  var tstr;
+  setInterval(function () {
+    //显示时长
+    h = Math.floor(t / 3600);
+    m = Math.floor(t % 3600 / 60);
+    s = t % 60;
+    tstr = ("0" + h).slice(-2) + ":" + ("0" + m).slice(-2) + ":" + ("0" + s).slice(-2);
+    document.querySelector(".tim1").innerHTML = tstr; //1#铁口
+    document.querySelector(".tim2").innerHTML = tstr; //2#铁口
+    document.querySelector(".tim3").innerHTML = tstr; //3#铁口
+    document.querySelector(".tim4").innerHTML = tstr; //4#铁口
+    t++;
+  }, 1000);
 })();

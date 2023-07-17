@@ -1,155 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>大型高炉关键信息智能感知系统</title>
-    <link rel="stylesheet" href="css/index.css" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-
   <body>
-    <header>
-      <h1>大型高炉关键信息智能感知系统</h1>
-      <div class="showTime">当前时间: 2020年3月17-0时54分14秒</div>
-      <script>
-        var t = null;
-        t = setTimeout(time, 1000); //開始运行
-        function time() {
-          clearTimeout(t); //清除定时器
-          dt = new Date();
-          var y = dt.getFullYear();
-          var mt = dt.getMonth() + 1;
-          var day = dt.getDate();
-          var h = dt.getHours(); //获取时
-          var m = dt.getMinutes(); //获取分
-          var s = dt.getSeconds(); //获取秒
-          document.querySelector(".showTime").innerHTML =
-            "当前时间：" +
-            y +
-            "年" +
-            mt +
-            "月" +
-            day +
-            "日-" +
-            h +
-            "时" +
-            m +
-            "分" +
-            s +
-            "秒";
-          t = setTimeout(time, 1000); //设定定时器，循环运行
-        }
-      </script>
-    </header>
-    <section class="mainbox">
-      <!-- 第1列：高炉左 -->
-      <div class="column">
-        <div class="panel bar">
-          <h2>
-            <a class="on" id="temp" href="javascript:;">顶温(℃)</a>
-            <a class="off" id="stress" href="javacript:;"> 顶压(kPa)</a>
-          </h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel line">
-          <h2>风压(MPa)</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel pie">
-          <h2>炉顶煤气分析</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <canvas id="particle-canvas1"></canvas>
-      </div>
-      <!-- 第2列：高炉 -->
-      <div class="column">
-        <div class="no">梅钢5#炉</div>
-        <div class="map">
-          <div class="map1"></div>
-        </div>
-      </div>
-      <!-- 第3列：高炉右 -->
-      <div class="column">
-        <div class="panel bar1">
-          <h2>喷煤参数</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel line1">
-          <h2>风量(10⁴m³/h)</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel pie1">
-          <h2>压力指数(MPa)</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <canvas id="particle-canvas"></canvas>
-      </div>
-      <!-- 第4列：4个铁口柱状图 -->
-      <div class="column">
-        <div class="panel taphole1">
-          <h2>1#出铁口</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-          <div class="num">出铁时长 <em>00:00:00</em></div>
-        </div>
-        <div class="panel taphole2">
-          <h2>2#出铁口</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-          <div class="num">出铁时长 <em>00:12:13</em></div>
-        </div>
-        <div class="panel taphole3">
-          <h2>3#出铁口</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-          <div class="num">出铁时长 <em>00:12:13</em></div>
-        </div>
-        <div class="panel taphole4">
-          <h2>4#出铁口</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-          <div class="num">出铁时长 <em>00:12:13</em></div>
-        </div>
-      </div>
-      <!-- 第5列：4个铁口折线图 -->
-      <div class="column">
-        <div class="panel tline1">
-          <h2>1#出铁口-实时铁水信息</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel tline2">
-          <h2>2#出铁口-实时铁水信息</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel tline3">
-          <h2>3#出铁口-实时铁水信息</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-        <div class="panel tline4">
-          <h2>4#出铁口-实时铁水信息</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
-        </div>
-      </div>
-    </section>
-    <script src="js/flexible.js"></script>
-    <script src="js/jquery.js"></script>
-    <!-- <script src="js/echarts.min.js"></script> -->
-    <script src="js/echarts.js"></script>
-    <script src="js/index.js"></script>
-    <!-- <script src="js/china.js"></script> -->
-    <!-- <script src="js/myMap.js"></script> -->
-    <script src="js/script.js"></script>
-    <script src="js/script1.js"></script>
+    <!-- 内嵌一个iframe元素，用于显示新页面 -->
+    <!-- <button
+      id="alarm-fullscreen-toggler"
+      style="position: absolute; top: 20px; z-index: 10"
+    >
+      加载新页面
+    </button> -->
+    <iframe
+      id="page"
+      src="./login/login.html"
+      style="
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: medium none;
+      "
+    ></iframe>
   </body>
+  <script src="js/jquery.js"></script>
+  <script src="js/login.js"></script>
 </html>
